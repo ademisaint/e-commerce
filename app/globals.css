@@ -2,15 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #fff;
+    --foreground: #000;
   }
 }
 
@@ -24,4 +30,9 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.font-variable {
+  font-family: var(--font-archivo-black), sans-serif;
+  font-weight: 400;
 }
