@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <div>
       <div className="bg-[#F2F0F1]">
-        <div className="flex justify-between px-[100px] pt-[10px]">
+        <div className="lg:flex justify-between px-[100px] pt-[10px]">
           <div className="">
             <h1 className={`${archivoBlack.className} font-bold text-[70px] tracking-tighter pt-[65px] pb-[15px] leading-[60px]`}>FIND CLOTHES THAT MATCHES YOUR STYLE</h1>
             <p className="text-[17px] text-[#858585] py-[15px] pr-[25px]">Browse through our diverse range of meticulously crafted garments, designed to bring out your individuality and cater to your sense of style</p>
