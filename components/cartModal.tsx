@@ -14,6 +14,14 @@ interface CartModalProps {
 const cartModal: React.FC<CartModalProps> = ({handleCartClose}) => {
   const cartItems = true
   const [checked, setChecked] = useState([true, false])
+  const [quantity, setQuantity] = useState(0);
+
+  const increase = () => {
+    setQuantity((prev) => prev + 1);
+  }
+  const decrease = () => {
+    setQuantity((prev) => (prev > 0 ? prev - 1 : 0));
+  }
 
   return (
     <div className='fixed top-0 left-0 w-full h-full flex items-center justify-center'>
@@ -30,27 +38,37 @@ const cartModal: React.FC<CartModalProps> = ({handleCartClose}) => {
             </div>
             
             <div className='flex items-center'>
-              <input type="checkbox" name="selectAll" id="" className='w-[20px] h-[20px]' />
-              <p className='py-[20px] '>Select all items</p>
+              <input type="checkbox" name="selectAll" id="" className='w-[20px] h-[20px] accent-[#F2F0F1] hover:accent-white' />
+              <p className='p-[20px] '>Select all items</p>
             </div>
-            <div className=' flex'>
-              <div className=' xl:w-[150px] xl:h-[150px] relative bg-[#F2F0F1] rounded-md'><Image src={bag} alt="Bag Image" layout="fill" objectFit="contain" className=' rounded-md' /></div>
+            <div className=' flex items-center'>
+              <div className='  xl:h-[150px] relative bg-[#F2F0F1] rounded-md w-[30%]'>
+                <Image src={bag} alt="Bag Image" layout="fill" objectFit="contain" className=' rounded-md' />
+              </div>
               
-              <div className='px-4 py-1'>
-                <div className='flex flex-row justify-between items-center'>
+              <div className='px-4 py-1 w-[60%]'>
+                <div className='flex justify-between'>
                   <h1 className='xl:text-[25px] xl:font-semibold xl:font-mono'>Men's backpack</h1>
                   <button>
                     <DeleteOutlined sx={{ color: red[500] }}/>
                   </button>
                 </div>
-                <p>size: Large</p>
-                <p>Color: White</p>
-                <div className='flex'>
-                  <p>$48</p>
-                  <div>
-                    plus
+                <p className='py-[5px]'>size: <span className='text-[#858585]'>Large</span></p>
+                <p className='py-[5px]'>Color: <span className='text-[#858585]'>White</span></p>
+                <div className='flex justify-between'>
+                  <p className='xl:text-[20px] xl:font-semibold xl:font-mono'>$48</p>
+                  <div className='flex items-center'>
+                    <button className='text-[12px] rounded-l-full bg-[#F2F0F1] w-[24px] h-[24px]' onClick={decrease}>-</button>
+                    <div className='w-[24px] h-[24px] flex justify-around bg-[#F2F0F1]'>
+                      <span className=''>{quantity}</span> 
+                    </div>
+                    <button className='text-[12px] rounded-r-full bg-[#F2F0F1] w-[24px] h-[24px]' onClick={increase}>+</button>
                   </div>
                 </div>
+              </div>
+
+              <div className='w-[10%] flex justify-around'>
+                <input type="checkbox" name="selectItem" id="item" className='accent-[#858585]' />
               </div>
             </div>
           </div>

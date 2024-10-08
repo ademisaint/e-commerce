@@ -2,12 +2,12 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Search from '../components/searchbox';
+import Search from './SearchBox';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import { Archivo_Black  } from 'next/font/google';
 
-import CartModal from '../components/cartModal';
+import CartModal from '../components/CartModal';
 
 const archivoBlack = Archivo_Black({
     subsets: ['latin'], 
@@ -15,9 +15,10 @@ const archivoBlack = Archivo_Black({
     variable: '--font-archivo-black'
   });
 
-const navbar = () => {
-    const [isCartOpen, setIsCartOpen] = useState(true)
+const NavBar = () => {
+    const [isCartOpen, setIsCartOpen] = useState(false)
     const [isProfileOpen, setIsProfileOpen] = useState(false)
+    const [isMobileMenuOpen, setMobileMenuOpen] = useState(false)
 
 
     const handleCart = () => {
@@ -32,6 +33,10 @@ const navbar = () => {
     const handleProfile = () => {
         setIsProfileOpen((prev) => !prev)
     }
+
+    const toggleMobileMenu = () => {
+        setMobileMenuOpen(!isMobileMenuOpen);
+    };
 
   return (
     <div className={`${archivoBlack.variable} flex justify-between items-center px-[100px] py-[20px]`}>
@@ -49,11 +54,13 @@ const navbar = () => {
             <p className='px-[15px] font-[550]'>New Arrival</p>
             <p className='px-[15px] font-[550]'>Branch</p>
         </div>
-        <Search/>
-        <div className='relative'>
-            <button className='relative px-4' onClick={handleCart}>
-                <ShoppingCartOutlinedIcon className='w-[30px] h-[30px] cursor-pointer'/>
-                <div className='absolute -top-2 right-2 w-[15px] h-[15px] flex items-center justify-center bg-red-600 rounded-full text-[13px] text-white'>2</div>
+        <div className='hidden lg:block'>
+            <Search />
+        </div>
+        <div className='relative flex items-center space-x-4 lg:space-x-6'>
+            <button className='relative px-2 lg:px-4' onClick={handleCart}>
+                <ShoppingCartOutlinedIcon className='w-[25px] h-[25px] lg:w-[30px] lg:h-[30px] cursor-pointer'/>
+                <div className='absolute -top-2 right-2 w-[15px] h-[15px] flex items-center justify-center bg-red-600 rounded-full text-[10px] lg:text-[13px] text-white'>2</div>
             </button>
             {isCartOpen && (
                 <div className='absolute flex'>
@@ -65,8 +72,8 @@ const navbar = () => {
                     </div>
                 </div>
             )}
-            <button onClick={handleProfile} className=' px-4'>
-                <AccountCircleOutlinedIcon className='w-[30px] h-[30px]'/>
+            <button onClick={handleProfile} className=' px-2 lg:px-4'>
+                <AccountCircleOutlinedIcon className='w-[25px] h-[25px] lg:w-[30px] lg:h-[30px] cursor-pointer'/>
             </button>
             {isProfileOpen && (
                 <div className='absolute top-[50px] right-0 bg-white shadow-md p-4 rounded-md'>
@@ -75,9 +82,25 @@ const navbar = () => {
                 </div>
             )}
         </div>
-        
+        <div className='lg:hidden'>
+            <button onClick={toggleMobileMenu} className="text-[30px]">
+                {/* Hamburger Icon */}
+                ☰
+            </button>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        {isMobileMenuOpen && (
+            <div className="absolute top-[60px] right-0 w-full bg-white shadow-md rounded-md p-4 flex flex-col space-y-4">
+                <Link href='/' className='text-lg font-medium'>Shop</Link>
+                <Link href='/' className='text-lg font-medium'>On Sale</Link>
+                <Link href='/' className='text-lg font-medium'>New Arrival</Link>
+                <Link href='/' className='text-lg font-medium'>Branch</Link>
+            </div>
+        )}
+
     </div>
   )
 }
 
-export default navbar
+export default NavBar

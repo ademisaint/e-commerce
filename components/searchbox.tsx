@@ -1,7 +1,7 @@
 import React from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 
-const searchbox = () => {
+const SearchBox = () => {
   return (
     <div className='bg-[#F2F0F1] px-4 border rounded-[40px]'>
         <SearchIcon color='disabled'/>
@@ -16,4 +16,4 @@ const searchbox = () => {
   )
 }
 
-export default searchbox
+export default SearchBox
