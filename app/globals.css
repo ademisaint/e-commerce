@@ -36,3 +36,50 @@ body {
   font-family: var(--font-archivo-black), sans-serif;
   font-weight: 400;
 }
+
+.scroll-parent {
+  position: relative;
+  width: 100vw;
+  height: 20rem;
+  overflow-x: hidden; /* Ensure that the overflow is hidden */
+  overflow-y: hidden;
+  /* animation-play-state: running; */
+}
+
+.scroll-element {
+  width: 100%; /* Use 100% to fit the parent */
+  height: inherit;
+  position: absolute;
+  top: 0;
+  animation-play-state: running;
+}
+
+.scroll-parent:hover .scroll-element {
+  animation-play-state: paused; /* Pause the animation on hover */
+}
+
+.primary {
+  animation: primary 7s linear infinite; /* Increased duration for smoother transition*/
+}
+
+.secondary {
+  animation: secondary 7s linear infinite; /* Increased duration for smoother transition */
+}
+
+@keyframes primary {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: -107%; /*Ensure this moves out of view*/
+  }
+}
+
+@keyframes secondary {
+  0% {
+    left: 107%; /* Starts just outside of view on the right */
+  }
+  100% {
+    left: 0%; /* Moves into view */
+  }
+}

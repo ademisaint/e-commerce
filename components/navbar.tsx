@@ -1,10 +1,12 @@
 "use client"
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Search from './SearchBox';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import MenuIcon from '@mui/icons-material/Menu';
+import CloseIcon from '@mui/icons-material/Close';
 import { Archivo_Black  } from 'next/font/google';
 
 import CartModal from '../components/CartModal';
@@ -35,12 +37,20 @@ const NavBar = () => {
     }
 
     const toggleMobileMenu = () => {
-        setMobileMenuOpen(!isMobileMenuOpen);
+        setMobileMenuOpen((prev) => !prev);
     };
 
+    useEffect (() => {
+        if (isMobileMenuOpen) {
+            console.log('menu is opened')
+        } else {
+            console.log('menu is closed')
+        }
+    },[isMobileMenuOpen])
+
   return (
-    <div className={`${archivoBlack.variable} flex justify-between items-center px-[100px] py-[20px]`}>
-        <div className=' font-variable text-[35px] tracking-tighter'>SHOP.CO</div>
+    <div className={`${archivoBlack.variable} flex justify-between items-center px-[50px] lg:px-[100px] py-[10px] lg:py-[20px] sticky`}>
+        <div className=' font-variable text-[15px] lg:text-[35px] tracking-tighter'>SHOP.CO</div>
         <div className='hidden xl:flex px-[10px]'>
             <div className='relative group'>
                 <p className='px-[15px] font-[550]'>shop</p>
@@ -84,12 +94,10 @@ const NavBar = () => {
         </div>
         <div className='lg:hidden'>
             <button onClick={toggleMobileMenu} className="text-[30px]">
-                {/* Hamburger Icon */}
-                ☰
+                {isMobileMenuOpen ? (<CloseIcon/>) : (<MenuIcon/>)}
             </button>
         </div>
 
-        {/* Mobile Menu Dropdown */}
         {isMobileMenuOpen && (
             <div className="absolute top-[60px] right-0 w-full bg-white shadow-md rounded-md p-4 flex flex-col space-y-4">
                 <Link href='/' className='text-lg font-medium'>Shop</Link>

@@ -3,8 +3,11 @@ import { Router } from "next/router";
 import Slider from "@/components/Slider";
 import Tape from "@/components/Tape";
 import ProductList from "@/components/ProductList";
+import NewProduct from "@/components/NewProduct";
+import Categories from "@/components/Categories";
 
 import { Archivo_Black  } from 'next/font/google';
+import Divider from "@mui/material/Divider";
 
 const archivoBlack = Archivo_Black({
     subsets: ['latin'], 
@@ -17,9 +20,18 @@ export default function Home() {
     <div>
       <Slider/>
       <Tape/>
-      <div className="px-[100px] lg:px-[200px] xl:pt-[70px]">
-        <h1 className={`${archivoBlack.className} text-[45px] flex justify-around tracking-tighter`}>NEW ARRIVALS</h1>
+      <div className="px-[50px] lg:px-[200px] pt-[30px] xl:pt-[70px]">
+        <h1 className={`${archivoBlack.className} text-[20px] pt-[10px] lg:text-[45px] flex justify-around tracking-tighter`}>NEW ARRIVALS</h1>
+        <NewProduct/>
+      </div>
+      <Divider orientation="horizontal" variant="middle" className="mx-[90px] lg:mx-[250px] pt-[25px]" />
+      <div className="px-[50px] lg:px-[200px] pt-[30px] xl:pt-[70px]">
+        <h1 className={`${archivoBlack.className} text-[20px] pt-[10px] lg:text-[45px] flex justify-around tracking-tighter`}>TOP SELLING</h1>
         <ProductList/>
+      </div>
+      {/* <Divider orientation="horizontal" variant="middle" className="mx-[90px] lg:mx-[250px] pt-[25px]" /> */}
+      <div className="mt-[30px] pt-[15px] xl:pt-[30px] bg-[#F5F5F5]">
+        <Categories/>
       </div>
     </div>
     // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">

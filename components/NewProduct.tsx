@@ -7,11 +7,11 @@ import Jean from '../public/images/blue mens jeans.png'
 import Bag from '../public/images/bagpng.png'
 import Bag2 from '../public/images/bagpng2.png'
 import BG from '../public/images/leather-bag-png.png'
- 
-const ProductList = () => {
+
+const NewProduct = () => {
   return (
     <div className='py-[20px]'>
-        <div className="flex gap-x-8 gap-y-16 justify-between flex-wrap">
+        <div className="flex overflow-x-auto flex-nowrap w-full">
             <Link href="/" className="w-[45%] sm:w-[30%] lg:w-[22%] px-[10px] py-[5px] flex-shrink-0">
                 <div className="h-[200px] w-full relative bg-[#F2F0F1] rounded-[20px]">
                     <Image
@@ -128,4 +128,4 @@ const ProductList = () => {
   )
 }
 
-export default ProductList
+export default NewProduct
