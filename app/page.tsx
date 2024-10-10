@@ -30,9 +30,10 @@ export default function Home() {
         <ProductList/>
       </div>
       {/* <Divider orientation="horizontal" variant="middle" className="mx-[90px] lg:mx-[250px] pt-[25px]" /> */}
-      <div className="mt-[30px] pt-[15px] xl:pt-[30px] bg-[#F5F5F5]">
+      <div>
         <Categories/>
       </div>
+
     </div>
     // <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
     //   <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">

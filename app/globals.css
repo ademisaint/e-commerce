@@ -39,16 +39,16 @@ body {
 
 .scroll-parent {
   position: relative;
-  width: 100vw;
-  height: 20rem;
+  /* width: 100vw; */
+  height: 240px;
   overflow-x: hidden; /* Ensure that the overflow is hidden */
   overflow-y: hidden;
   /* animation-play-state: running; */
 }
 
 .scroll-element {
-  width: 100%; /* Use 100% to fit the parent */
-  height: inherit;
+  max-width: 100%; /* Use 100% to fit the parent */
+  height: 100%;
   position: absolute;
   top: 0;
   animation-play-state: running;
@@ -71,13 +71,13 @@ body {
     left: 0%;
   }
   100% {
-    left: -107%; /*Ensure this moves out of view*/
+    left: -108%; /*Ensure this moves out of view*/
   }
 }
 
 @keyframes secondary {
   0% {
-    left: 107%; /* Starts just outside of view on the right */
+    left: 108%; /* Starts just outside of view on the right */
   }
   100% {
     left: 0%; /* Moves into view */
