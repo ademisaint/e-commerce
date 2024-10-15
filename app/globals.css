@@ -83,3 +83,43 @@ body {
     left: 0%; /* Moves into view */
   }
 }
+
+@media (max-width: 768px) {
+  @keyframes primary {
+    0% {
+      left: 0%;
+    }
+    100% {
+      left: -247%;
+    }
+  }
+
+  @keyframes secondary {
+    0% {
+      left: 247%; 
+    }
+    100% {
+      left: 0%; 
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  @keyframes primary {
+    0% {
+      left: 0%;
+    }
+    100% {
+      left: -420%;
+    }
+  }
+
+  @keyframes secondary {
+    0% {
+      left: 420%; 
+    }
+    100% {
+      left: 0%; 
+    }
+  }
+}
