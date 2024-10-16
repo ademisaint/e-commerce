@@ -8,12 +8,12 @@ const openSans = Open_Sans({
 
 const Filter = () => {
   return (
-    <div className=' py-[15px] flex flex-wrap justify-between'>
-        <div className='w-[70%] flex justify-between'>
+    <div className=' py-[15px] flex flex-wrap justify-between gap-4'>
+        <div className=' w-full md:w-[70%] flex flex-wrap md:justify-between gap-2'>
             <select 
                 name="type" 
                 id="" 
-                className= {`${openSans.className} rounded-2xl bg-[#F5F5F5] text-[12px] py-[5px] px-[10px] border-none outline-none`}
+                className= {`${openSans.className} rounded-2xl bg-[#F5F5F5] text-[12px] py-[5px] px-[5px] md:px-[10px] border-none outline-none`}
             >
                 <option value="">Type</option>
                 <option value="">Physical</option>
@@ -23,18 +23,18 @@ const Filter = () => {
                 type="text" 
                 placeholder='min price'
                 name='min price'
-                className={`${openSans.className} w-24 rounded-2xl ring-1 ring-[#cccccc] text-[12px] py-[5px] px-[10px] font-medium outline-none`}
+                className={`${openSans.className} w-20 md:w-24 rounded-2xl ring-1 ring-[#cccccc] text-[12px] py-[5px] px-[5px] md:px-[10px] font-medium outline-none`}
             />
             <input 
                 type="text" 
                 placeholder='max price'
                 name='max price'
-                className={`${openSans.className} w-24 rounded-2xl ring-1 ring-[#cccccc] text-[12px] py-[5px] px-[10px] font-medium outline-none`}
+                className={`${openSans.className} w-20 md:w-24 rounded-2xl ring-1 ring-[#cccccc] text-[12px] py-[5px] px-[5px] md:px-[10px] font-medium outline-none`}
             />
             <select 
                 name="Size" 
                 id="" 
-                className= {`${openSans.className} rounded-2xl bg-[#F5F5F5] text-[12px] py-[5px] px-[10px] font-medium border-none outline-none`}
+                className= {`${openSans.className} rounded-2xl bg-[#F5F5F5] text-[12px] py-[5px] px-[5px] md:px-[10px] font-medium border-none outline-none`}
             >
                 <option>Size</option>
                 <option value="">small</option>
@@ -44,7 +44,7 @@ const Filter = () => {
             <select 
                 name="Color" 
                 id="" 
-                className= {`${openSans.className} rounded-2xl bg-[#F5F5F5] text-[12px] py-[5px] px-[10px] font-medium border-none outline-none`}
+                className= {`${openSans.className} rounded-2xl bg-[#F5F5F5] text-[12px] py-[5px] px-[5px] md:px-[10px] font-medium border-none outline-none`}
             >
                 <option>Color</option>
                 <option value="">White</option>
@@ -53,7 +53,7 @@ const Filter = () => {
             <select 
                 name="Category" 
                 id="" 
-                className= {`${openSans.className} rounded-2xl bg-[#F5F5F5] text-[12px] py-[5px] px-[10px] font-medium border-none outline-none`}
+                className= {`${openSans.className} rounded-2xl bg-[#F5F5F5] text-[12px] py-[5px] px-[5px] md:px-[10px] font-medium border-none outline-none`}
             >
                 <option value="">New Arrival</option>
                 <option value="">Popular</option>

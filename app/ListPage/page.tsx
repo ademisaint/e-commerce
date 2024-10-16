@@ -1,4 +1,4 @@
-'use client'
+
 
 import React from 'react'
 import Image from 'next/image'
@@ -14,96 +14,112 @@ const openSans = Open_Sans({
 const ListPage = () => {
     const items = [
         {
+          src: '',
           url: '/images/item1.png',
           name: 'Men Business Backpack Fashion Rucksack High Quality Bagpack Large Capacity Multifunction Laptop Backpacks Schoolbag-ll',
           rating: '⭐⭐⭐⭐⭐',
           price: '$50.00',
         },
         {
+          src: '',
           url: '/images/item2.png',
           name: 'Casual Wear T-Shirt Cotton Slim Fit for Men',
           rating: '⭐⭐⭐⭐',
           price: '$20.00',
         },
         {
+          src: '',
           url: '/images/item3.png',
           name: 'Women’s Designer Handbag Leather Tote Bag',
           rating: '⭐⭐⭐⭐⭐',
           price: '$120.00',
         },
         {
+          src: '',
           url: '/images/item4.png',
           name: 'Sport Running Shoes for Men Lightweight Comfortable',
           rating: '⭐⭐⭐⭐',
           price: '$70.00',
         },
         {
+          src: '',
           url: '/images/item5.png',
           name: 'Luxury Watch for Men Chronograph Waterproof',
           rating: '⭐⭐⭐⭐⭐',
           price: '$350.00',
         },
         {
+          src: '',
           url: '/images/item6.png',
           name: 'Wireless Bluetooth Headphones Noise Cancelling',
           rating: '⭐⭐⭐⭐',
           price: '$85.00',
         },
         {
+          src: '',
           url: '/images/item7.png',
           name: 'Gaming Laptop High-Performance 16GB RAM',
           rating: '⭐⭐⭐⭐⭐',
           price: '$1200.00',
         },
         {
+          src: '',
           url: '/images/item8.png',
           name: '4K Smart TV Ultra HD 55 Inches with HDR',
           rating: '⭐⭐⭐⭐⭐',
           price: '$550.00',
         },
         {
+          src: '',
           url: '/images/item9.png',
           name: 'Portable Charger Power Bank 20000mAh',
           rating: '⭐⭐⭐⭐⭐',
           price: '$40.00',
         },
         {
+          src: '',
           url: '/images/item10.png',
           name: 'Men’s Leather Wallet RFID Blocking Bifold',
           rating: '⭐⭐⭐⭐',
           price: '$25.00',
         },
         {
+          src: '',
           url: '/images/item11.png',
           name: 'Wireless Earbuds with Charging Case',
           rating: '⭐⭐⭐⭐',
           price: '$60.00',
         },
         {
-          url: '/images/item12.png',
+          src: '/images/item12.png',
+          url: '/images/item12b.jpg',
           name: 'Women’s Summer Dress Floral Print Casual',
           rating: '⭐⭐⭐⭐',
           price: '$35.00',
         },
         {
-          url: '/images/item13.png',
+          src: '/images/item13.png',
+          url: '/images/item13b.jpg',
           name: 'Stainless Steel Water Bottle with Insulation',
           rating: '⭐⭐⭐⭐⭐',
           price: '$18.00',
         },
         {
+          src: '',
           url: '/images/item14.png',
           name: 'Smartphone Android 5G 128GB Dual SIM',
           rating: '⭐⭐⭐⭐',
           price: '$650.00',
         },
         {
-          url: '/images/item15.png',
+          src: '/images/item15.png',
+          url: '/images/item15b.jpg',
           name: 'Women’s Fashion Sneakers Breathable Comfort',
           rating: '⭐⭐⭐⭐',
           price: '$75.00',
         },
         {
+          src: '',
           url: '/images/item16.png',
           name: 'Men’s Winter Jacket Waterproof with Hood',
           rating: '⭐⭐⭐⭐⭐',
@@ -135,19 +151,28 @@ const ListPage = () => {
             </div>
             <div className="flex gap-x-8 gap-y-16 justify-between flex-wrap py-[20px] md:py-[40px]">
                 {items.map((items, index) => (
-                    <Link href="/" className="w-[45%] sm:w-[30%] lg:w-[22%] px-[10px] py-[5px] flex-shrink-0">
+                    <Link 
+                        href="/" 
+                        key={index}
+                        className="w-full sm:w-[45%] md:w-[30%] lg:w-[22%] px-[10px] py-[5px] flex-shrink-0"
+                    >
                         <div className="h-[200px] w-full relative bg-[#F2F0F1] rounded-[20px]">
-                            {/* <Image
-                                src={Top}
-                                alt="backpack"
-                                className="bg-[#F2F0F1] w-full h-full absolute object-cover rounded-md z-10 hover:opacity-0 transition-opacity ease-in-out duration-500"
-                            /> */}
-                            <Image
-                                src={items.url}
-                                alt="backpack"
-                                className="bg-[#F2F0F1] w-full h-full absolute object-cover rounded-[20px]"
-                                layout='fill'
-                            />
+                            {items.src && (
+                                <Image
+                                    src={items.src}
+                                    alt="backpack"
+                                    className="bg-[#F2F0F1] w-full h-full absolute object-cover rounded-md z-10 hover:opacity-0 transition-opacity ease-in-out duration-500"
+                                    layout='fill'
+                                />
+                            )}
+                            {items.url && (
+                                <Image
+                                    src={items.url}
+                                    alt="backpack"
+                                    className="bg-[#F2F0F1] w-full h-full absolute object-cover rounded-[20px]"
+                                    layout='fill'
+                                />
+                            )}
                         </div>
                         <div>
                             <p className="text-[16px] font-normal mt-2 line-clamp-1 tracking-tight">{items.name}</p>
