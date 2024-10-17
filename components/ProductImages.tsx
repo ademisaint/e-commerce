@@ -1,41 +1,56 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import Image from 'next/image'
 
 const ProductImages = () => {
+    const image = [
+        {
+            id: 1,
+            url: '/images/6.jpg',
+            alt: '6'
+        },
+        {
+            id: 2,
+            url: '/images/5.jpg',
+            alt: '5'
+        },
+        {
+            id: 3,
+            url: '/images/4.jpg',
+            alt: '4'
+        },
+        // {
+        //     id: 4,
+        //     url: '/images/3.jpg',
+        //     alt: '4'
+        // },
+    ]
+
+    const [index, setIndex] = useState(0)
+
   return (
     <div className='flex justify-between'>
-        <div className="flex flex-col justify-between w-[20%] gap-2">
-            <div className="h-1/3">
-            <Image
-                src="/images/item12b.jpg"
-                alt="item12"
-                width={120}
-                height={200}
-                className="object-cover bg-[#F2F0F1] rounded-[20px]"
-            />
-            </div>
-            <div className="h-1/3">
-            <Image
-                src="/images/item12.png"
-                alt="item12"
-                width={120}
-                height={200}
-                className="object-cover bg-[#F2F0F1] rounded-[20px]"
-            />
-            </div>
-            <div className="h-1/3">
-            <Image
-                src="/images/item13b.jpg"
-                alt="item13b"
-                width={120}
-                height={200}
-                className="object-cover bg-[#F2F0F1] rounded-[20px]"
-            />
-            </div>
+        <div className="w-[28%] flex flex-col justify-between gap-2">
+            {image.map((img,i) => (
+                <div 
+                    className="h-1/3 cursor-pointer" 
+                    key={img.id}
+                    onClick={()=> setIndex(i)}
+                >
+                    <Image
+                        src={img.url}
+                        alt={img.alt}
+                        width={150}
+                        height={150}
+                        className="object-cover bg-[#F2F0F1] rounded-[20px]"
+                    />
+                </div>
+            ))}
         </div>
-        <div className="h-[400px] w-[65%] relative bg-[#F2F0F1] rounded-[20px]">
+        <div className="w-[70%]  relative bg-[#F2F0F1] rounded-[20px]">
             <Image
-            src="/images/item13.png"
+            src={image[index].url}
             alt="item13"
             fill
             className="object-cover rounded-[15px]"
