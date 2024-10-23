@@ -5,6 +5,7 @@ import bag from '../public/images/bagpng.png'
 import CloseIcon from '@mui/icons-material/Close';
 import red from '@mui/material/colors/red';
 import DeleteOutlined from '@mui/icons-material/DeleteOutlined'
+import AddItems from './AddItems';
 
 interface CartModalProps {
   handleCartClose: () => void;  // This defines that handleCartClose is a function
@@ -64,6 +65,7 @@ const cartModal: React.FC<CartModalProps> = ({handleCartClose}) => {
                     </div>
                     <button className='text-[12px] rounded-r-full bg-[#F2F0F1] w-[24px] h-[24px]' onClick={increase}>+</button>
                   </div>
+                  {/* <AddItems/> */}
                 </div>
               </div>
 
