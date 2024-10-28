@@ -3,6 +3,11 @@ import Nav from '@/components/NavBar'
 import Foot from '@/components/Footer';
 import { Archivo_Black } from 'next/font/google';
 import { Roboto } from 'next/font/google';
+import SessionWrapper from '@/components/SessionWrapper';
+import { ProductProvider } from '@/context/productContext';
+// import { WixClientContextProvider } from '@/context/wixContext';
+// import { title } from 'process';
+// import { Description } from '@mui/icons-material';
 
 const archivoBlack = Archivo_Black({
   subsets: ['latin'],
@@ -14,22 +19,33 @@ const roboto = Roboto({
   weight: '400',
 })
 
+export const metadata = {
+  title: 'Sainte',
+  Description: 'created by saint'
+}
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      
-      <body className={roboto.className}>
-        <div>
-          <Nav/>
-          <main>{children}</main>
-          <Foot/>
-        </div>
-      </body>
-      
-    </html>
+    // <SessionWrapper>
+      <ProductProvider>
+    {/* // <WixClientContextProvider> */}
+      <html lang="en">
+        
+        <body className={roboto.className}>
+          <div>
+            <Nav/>
+            <main>{children}</main>
+            <Foot/>
+          </div>
+        </body>
+        
+      </html> 
+      </ProductProvider>
+    /* // </WixClientContextProvider> */
+    // </SessionWrapper>
   )
 }

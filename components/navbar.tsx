@@ -10,6 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { Archivo_Black  } from 'next/font/google';
 
 import CartModal from '../components/CartModal';
+import { signOut } from 'next-auth/react';
 
 const archivoBlack = Archivo_Black({
     subsets: ['latin'], 
@@ -50,17 +51,17 @@ const NavBar = () => {
 
   return (
     <div className={`${archivoBlack.variable} flex justify-between items-center px-[50px] lg:px-[100px] py-[10px] lg:py-[20px] sticky`}>
-        <div className=' font-variable text-[15px] lg:text-[35px] tracking-tighter'>SHOP.CO</div>
+        <div className=' font-variable text-[15px] lg:text-[35px] tracking-tighter'><Link href='/'>SHOP.CO</Link></div>
         <div className='hidden xl:flex px-[10px]'>
             <div className='relative group'>
-                <p className='px-[15px] font-[550]'>shop</p>
-                <div className='absolute flex flex-col top-[50px] right-0 bg-white shadow-md p-4 rounded-md opacity-0 group-hover:opacity-100 group-hover:visible transition-opacity duration-300 invisible'>
-                    <Link href='/'>Shoes</Link>
-                    <Link href='/'>Bags</Link>
-                    <Link href='/'>Wears</Link>
+                <p className='px-[15px] font-[550] cursor-pointer'>shop</p>
+                <div className=' absolute flex flex-col top-[50px] right-0 bg-white shadow-md p-4 rounded-md opacity-0 group-hover:opacity-100 group-hover:visible transition-opacity duration-300 invisible'>
+                    <Link href='/ItemPage'>Shoes</Link>
+                    <Link href='/ItemPage'>Bags</Link>
+                    <Link href='/ItemPage'>Wears</Link>
                 </div>
             </div>
-            <p className='px-[15px] font-[550]'>On sale</p>
+            <p className='px-[15px] font-[550]'><Link href='/ListPage'>onSale</Link></p>
             <p className='px-[15px] font-[550]'>New Arrival</p>
             <p className='px-[15px] font-[550]'>Branch</p>
         </div>
@@ -88,7 +89,12 @@ const NavBar = () => {
             {isProfileOpen && (
                 <div className='absolute top-[50px] right-0 bg-white shadow-md p-4 rounded-md'>
                     <Link href="/">Profile</Link>
-                    <div><p>Logout</p></div>
+                    <div>
+                        <button className='cursor-pointer' onClick={() => signOut({callbackUrl : ''})}>
+                            Logout
+                        </button>
+                    </div>
+                    
                 </div>
             )}
         </div>

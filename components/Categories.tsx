@@ -13,6 +13,7 @@ import Pet from '../public/images/Pet Supplies.png'
 import Babies from '../public/images/Babies.png'
 import MensCloth from '../public/images/mens cloth.png'
 import Style from '../public/images/wait.png'
+import { url } from 'inspector'
 
 const openSans = Open_Sans({
     subsets: [],
@@ -30,6 +31,7 @@ const Categories = () => {
         {
             src: Sports,
             name: 'Sports and Entertainment',
+            url: '',
         },
         {
             src: Computer,
