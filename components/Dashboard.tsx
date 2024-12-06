@@ -21,29 +21,29 @@ const archivoBlack = Archivo_Black({
   });
 
 const Dashboard = () => {
-    // const { data: session} = useSession();
+    const { data: session} = useSession();
 
     // if (!session) {
     //     return <p>Loading...</p>; // or redirect to login
     // }
 
-    // const wixClient = useContext(WixClientContext)
+    const wixClient = useContext(WixClientContext)
 
-    // useEffect (() => {
-    //     const getProducts = async() => {
-    //         const res = await wixClient.products.queryProducts().find();
+    useEffect (() => {
+        const getProducts = async() => {
+            const res = await wixClient.products.queryProducts().find();
 
-    //         console.log(res)
-    //     }
+            console.log(res)
+        }
 
-    //     getProducts();
-    // }, [wixClient])
+        getProducts();
+    }, [wixClient])
     
     
 
   return (
     <>
-        {/* {session ? ( */}
+        {session ? (
             <>
                 <Slider/>
                 <Tape/>
@@ -61,7 +61,7 @@ const Dashboard = () => {
                     <Categories/>
                 </div>
             </>
-         {/* ): (
+        ): (
             <div className='px-[30%] py-[10%]'>
                 <h1 className=' text-center text-2xl font-semibold'>You're not logged In!!!</h1>
                 <div className='flex flex-col gap-4 items-center w-full justify-between pt-5'>
@@ -70,7 +70,7 @@ const Dashboard = () => {
                 </div>
 
             </div>
-        )} */}
+        )}
     </>
   )
 }
