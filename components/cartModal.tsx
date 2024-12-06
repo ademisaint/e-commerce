@@ -12,7 +12,7 @@ interface CartModalProps {
 }
 
 
-const cartModal: React.FC<CartModalProps> = ({handleCartClose}) => {
+const CartModal: React.FC<CartModalProps> = ({handleCartClose}) => {
   const cartItems = true
   const [checked, setChecked] = useState([true, false])
   const [quantity, setQuantity] = useState(0);
@@ -80,4 +80,4 @@ const cartModal: React.FC<CartModalProps> = ({handleCartClose}) => {
   )
 }
 
-export default cartModal
+export default CartModal
