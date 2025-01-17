@@ -30,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    // <SessionWrapper>
+    <SessionWrapper>
       <ProductProvider>
     {/* // <WixClientContextProvider> */}
       <html lang="en">
@@ -45,7 +45,7 @@ export default function RootLayout({
         
       </html> 
       </ProductProvider>
-    /* // </WixClientContextProvider> */
-    // </SessionWrapper>
+    {/* // </WixClientContextProvider> */}
+    </SessionWrapper>
   )
 }
