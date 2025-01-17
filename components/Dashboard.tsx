@@ -52,7 +52,7 @@ const Dashboard = () => {
                     <NewProduct/>
                 </div>
                 <Divider orientation="horizontal" variant="middle" className="mx-[90px] lg:mx-[250px] pt-[25px]" />
-                <div className="px-[50px] lg:px-[200px] pt-[30px] xl:pt-[70px]">
+                <div className="px-[50px] pt-[30px] xl:pt-[70px]">
                     <h1 className={`${archivoBlack.className} text-[20px] pt-[10px] lg:text-[45px] flex justify-around tracking-tighter`}>TOP SELLING</h1>
                     <ProductList/>
                 </div>

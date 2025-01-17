@@ -2,14 +2,14 @@
 
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Search from './SearchBox';
+import Search from './Searchbox';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import { Archivo_Black  } from 'next/font/google';
 
-import CartModal from '../components/CartModal';
+import CartModal from './CartModal';
 import { signOut } from 'next-auth/react';
 
 const archivoBlack = Archivo_Black({
@@ -62,7 +62,7 @@ const NavBar = () => {
                 </div>
             </div>
             <p className='px-[15px] font-[550]'><Link href='/ListPage'>onSale</Link></p>
-            <p className='px-[15px] font-[550]'>New Arrival</p>
+            <p className='px-[15px] font-[550]'><Link href='/Products'>New Arrival</Link></p>
             <p className='px-[15px] font-[550]'>Branch</p>
         </div>
         <div className='hidden lg:block'>

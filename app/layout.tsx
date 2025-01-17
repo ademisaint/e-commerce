@@ -1,5 +1,5 @@
 import '@/app/globals.css';
-import Nav from '@/components/NavBar'
+import Nav from '@/components/Navbar'
 import Foot from '@/components/Footer';
 import { Archivo_Black } from 'next/font/google';
 import { Roboto } from 'next/font/google';

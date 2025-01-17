@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
@@ -14,10 +16,10 @@ const ProductList = () => {
     const [page, setPage] = useState(1);
 
   return (
-    <div className='py-[20px]'>
+    <div className='py-[20px] xl:px-[200px] lg:px-[100px] '>
         <div className="flex gap-x-8 gap-y-16 justify-between flex-wrap">
             {products?.map((product) => (
-            <Link href={`/products/${product.id}`} key={product.id} className="w-[45%] sm:w-[30%] lg:w-[22%] px-[10px] py-[5px] flex-shrink-0">
+            <Link href={`/Products/${product.id}`} key={product.id} className="w-[45%] sm:w-[30%] lg:w-[22%] px-[10px] py-[5px] flex-shrink-0">
                 <div className="h-[200px] w-full relative bg-[#F2F0F1] rounded-[20px]">
                     {/* <Image
                         src={product.images}
